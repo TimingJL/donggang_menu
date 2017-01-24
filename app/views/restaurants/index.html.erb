@@ -14,7 +14,6 @@
           <%= link_to restaurant.name, restaurant %>
         </h2>   
 
-        <p></p>   
         <div class="panel-body">         
           <h4 class="detail">
             <%= restaurant.phone1 %>
@@ -23,7 +22,7 @@
             <% end %>            
           </h4>                                   
         </div>
-        <p class="detail"></p> 
+
       <div class="btn-group">
         <button type="button" class="btn btn-info"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></button>
         <button type="button" class="btn btn-danger"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></button>
