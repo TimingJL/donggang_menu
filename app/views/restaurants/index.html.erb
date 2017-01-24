@@ -16,17 +16,15 @@
 
         <p></p>   
         <div class="panel-body">         
-          <h4 class="detail">電話1:
+          <h4 class="detail">
             <%= restaurant.phone1 %>
-            <% if restaurant.phone2.present? %>
-              電話2:
+            <% if restaurant.phone2.present? %>              
               <%= restaurant.phone2 %>
             <% end %>            
           </h4>                                   
         </div>
         <p class="detail"></p> 
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary"><%= link_to 'Show', restaurant %></button>
         <button type="button" class="btn btn-info"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></button>
         <button type="button" class="btn btn-danger"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       </div>
