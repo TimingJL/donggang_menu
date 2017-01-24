@@ -2,7 +2,13 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @restaurant.image.url(:medium) %>
+  <% if @restaurant.imageURL.present? %>
+    <%= link_to (image_tag @restaurant.imageURL , width: '100%'), @restaurant %>
+  <% elsif restaurant.image.present? %>
+    <%= link_to (image_tag @restaurant.image.url(:small) , width: '100%'), @restaurant %>
+  <% else %>
+    <%= link_to @restaurant.name, restaurant %>
+  <% end %>  
 </p>
   
 <p>

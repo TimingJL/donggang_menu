@@ -3,7 +3,9 @@
 <div class="transitions-enabled" id="restaurants">
   <% @restaurants.each do |restaurant| %> 
     <div class="box panel panel-default">
-      <% if restaurant.image.present? %>
+      <% if restaurant.imageURL.present? %>
+        <%= link_to (image_tag restaurant.imageURL , width: '100%'), restaurant %>
+      <% elsif restaurant.image.present? %>
         <%= link_to (image_tag restaurant.image.url(:small) , width: '100%'), restaurant %>
       <% else %>
         <%= link_to restaurant.name, restaurant %>
@@ -12,17 +14,15 @@
           <%= link_to restaurant.name, restaurant %>
         </h2>   
 
-        <p class="detail"></p>   
+        <p></p>   
         <div class="panel-body">         
-          <h4>電話1:
+          <h4 class="detail">電話1:
             <%= restaurant.phone1 %>
-          </h4>
-          <h4>
             <% if restaurant.phone2.present? %>
               電話2:
               <%= restaurant.phone2 %>
-            <% end %>
-          </h4>                                     
+            <% end %>            
+          </h4>                                   
         </div>
         <p class="detail"></p> 
       <div class="btn-group">
