@@ -8,12 +8,11 @@
                 %li= message
 
     .panel-body
-        = f.input :image, input_html: { class: 'form-control' }
         = f.input :name, input_html: { class: 'form-control' }
+        = f.input :imageURL, input_html: { class: 'form-control' }
         = f.input :address, input_html: { class: 'form-control' }
         = f.input :phone1, input_html: { class: 'form-control' }
-        = f.input :phone2, input_html: { class: 'form-control' }
-        = f.input :imageURL, input_html: { class: 'form-control' }
+        = f.input :phone2, input_html: { class: 'form-control' }       
         = f.input :note, input_html: { class: 'form-control' }
         = f.input :vegetarian, input_html: { class: 'form-control' }
     = f.button :submit, class: "btn btn-primary"
