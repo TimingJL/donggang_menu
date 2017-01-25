@@ -13,15 +13,12 @@
         <h2>
           <%= link_to restaurant.name, restaurant %>
         </h2>   
-
-        <div class="panel-body">         
-          <h4 class="detail">
-            <%= restaurant.phone1 %>
-            <% if restaurant.phone2.present? %>              
-              <%= restaurant.phone2 %>
-            <% end %>            
-          </h4>                                   
-        </div>
+        <h4 class="detail">
+          <%= restaurant.phone1 %>
+          <% if restaurant.phone2.present? %>              
+            <%= restaurant.phone2 %>
+          <% end %>            
+        </h4>  
 
       <div class="btn-group">
         <button type="button" class="btn btn-info"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></button>

@@ -37,13 +37,13 @@ footer {
 
 
 #restaurants {
-  margin: 0px;
+  margin: 0px auto;
   width: 100%;
   .box {
       padding: 0px 0px;
       margin: 0px auto;
-      max-width: 200px;
-      width: 30% auto;
+      max-width: 170px;
+      width: 50% auto;
       /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
       border-radius: 0px;
       text-align: center;
@@ -67,7 +67,8 @@ footer {
         font-size: 15px;
         border-top: 0px solid #EAEAEA;
         padding: 0px;
-        margin: 0;
+        margin: 3px;
+        color: gray;
       }        
     }
 }
