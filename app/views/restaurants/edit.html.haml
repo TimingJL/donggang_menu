@@ -1,0 +1,9 @@
+#show-box.row
+	.col-md-6.col-md-offset-3
+		.box
+			.panel.panel-default
+				%h1
+					Editing Restaurant
+				= render 'form', restaurant: @restaurant
+				= link_to 'Back', restaurants_path
+
