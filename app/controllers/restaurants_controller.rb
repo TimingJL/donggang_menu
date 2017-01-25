@@ -15,6 +15,11 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+        marker.lat restaurant.latitude
+        marker.lng restaurant.longitude
+        marker.infowindow restaurant.address
+    end     
   end
 
   # GET /restaurants/new

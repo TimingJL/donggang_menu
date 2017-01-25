@@ -14,6 +14,8 @@ gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'paperclip', '~> 4.2.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.1'
+gem 'gmaps4rails'
+gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
