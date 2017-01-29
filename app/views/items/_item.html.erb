@@ -1,0 +1,28 @@
+<p></p>
+<p></p>
+
+<table style="width:100%">
+  <tr>
+    <td>
+        <% if item.imageURL.present? %>
+          <%= image_tag item.imageURL, width: '50px' %>
+        <% elsif item.image.present? %>
+          <%= image_tag item.image.url(:small) %>
+        <% else %>
+          <%= item.imageURL %>
+        <% end %>
+    </td>
+    <td><%= item.name %></td>
+    <td><%= item.price %></td> 
+    <td>
+      <div class="btn-group">
+        <button class="btn btn-info" type="button">
+            <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id) %>
+        </button>
+        <button class="btn btn-danger" type="button">
+            <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </button>
+      </div>
+    </td>     
+  </tr>
+</table>

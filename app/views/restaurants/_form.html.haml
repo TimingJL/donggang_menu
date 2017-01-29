@@ -1,7 +1,7 @@
-= simple_form_for restaurant, html:{multipart: true} do |f|
-    - if restaurant.errors.any?
+= simple_form_for @restaurant, html:{multipart: true} do |f|
+    - if @restaurant.errors.any?
         %p
-            = pluralize(restaurant.errors.count, "error")
+            = pluralize(@restaurant.errors.count, "error")
             prohibited this restaurant from being saved
         %ul
             - restaurant.errors.full_messages.each do |message|

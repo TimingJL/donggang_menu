@@ -1,0 +1,32 @@
+<div class="row" id="show-box">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="box">
+      <div class="panel panel-default">
+        <h1>
+          New Item
+        </h1>
+        <div class='panel-body'>
+			<%= form_for @item, :url => { :controller => 'items', :action => 'update', :id => @item } do |f| %>
+			    <%= f.label :name, "Name" %>
+			    <%= f.text_field :name ,class: 'form-control' %>
+
+			    <%= f.label :price, "Price" %>
+			    <%= f.text_field :price,class: 'form-control' %>
+
+			    <%= f.label :imageURL, "Image URL" %>
+			    <%= f.text_field :imageURL,class: 'form-control' %>			   
+
+			    <%= f.label :vegetarian, "Vegetarian" %>
+			    <%= f.check_box :vegetarian,class: 'form-control' %>	
+
+			    <%= f.label :note, "Note" %>
+			    <%= f.text_field :note,class: 'form-control' %>	
+
+			    <%= f.submit "Update" %>
+			<% end %>        
+	        <%= link_to 'Back', @restaurant %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
