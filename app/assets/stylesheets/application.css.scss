@@ -17,8 +17,8 @@
 @import "bootstrap";
 
 body {
-  background: rgb(51, 51, 51);
-  /*background: #d3d7dc;*/
+  /*background: rgb(51, 51, 51);*/
+  background: #FFBD9D;
 }
 /*.gradient-background { 
   height: 100%;
@@ -31,7 +31,7 @@ body {
 }*/
 
 footer {
-  background: rgb(51, 51, 51);
+  /*background: rgb(51, 51, 51);*/
 }
 
 #restaurants {
@@ -42,8 +42,8 @@ footer {
       margin: 2px;/*box之間的距離*/
       max-width: 170px;
       width: 50%;
-      /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
-      border-radius: 0px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
       text-align: center;
       text-decoration:none;
       img {
