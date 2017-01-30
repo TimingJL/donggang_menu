@@ -18,3 +18,7 @@
 //= require turbolinks
 //= require_tree .
 //= require gmaps/google
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
