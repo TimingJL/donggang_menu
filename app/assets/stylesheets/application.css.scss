@@ -39,9 +39,9 @@ footer {
   width: 100%;
   .box {
       padding: 0px 0px;
-      margin: 0px auto;
+      margin: 5px;
       max-width: 170px;
-      width: 50% auto;
+      width: 50%;
       /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
       border-radius: 0px;
       text-align: center;
@@ -76,9 +76,9 @@ textarea {
 }
 
 #show-box {
-
+    margin: 0px;
     .box {
-      margin: 0px auto;
+      margin: 0px;
       background: white;
       width: 100%;
       max-width: 500px;
