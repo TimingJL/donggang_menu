@@ -21,10 +21,12 @@
 
 			    <%= f.label :note, "Note" %>
 			    <%= f.text_field :note,class: 'form-control' %>	
-
-			    <%= f.submit "Update" %>
+			    <div class="btn-group">
+			    	<%= link_to 'Back', @restaurant, class: "btn btn-info" %>
+			    	<%= f.submit "Update", class: "btn btn-primary" %>
+			    </div>
 			<% end %>        
-	        <%= link_to 'Back', @restaurant %>
+	        
         </div>
       </div>
     </div>

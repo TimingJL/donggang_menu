@@ -21,8 +21,8 @@
         </h4>  
 
       <div class="btn-group">
-        <button type="button" class="btn btn-info"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></button>
-        <button type="button" class="btn btn-danger"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
+        <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
   <% end %>

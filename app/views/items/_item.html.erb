@@ -16,12 +16,8 @@
     <td><%= item.price %></td> 
     <td>
       <div class="btn-group">
-        <button class="btn btn-info" type="button">
-            <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id) %>
-        </button>
-        <button class="btn btn-danger" type="button">
-            <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-        </button>
+        <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id), class: "btn btn-info" %>
+        <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
       </div>
     </td>     
   </tr>

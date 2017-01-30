@@ -16,6 +16,9 @@
       <div class="panel-body">
         <h1>
           <%= @restaurant.name %>
+          <% if @restaurant.website.present? %>
+            <%= link_to '前往店家網站', @restaurant.website, class: "btn btn-warning"%>
+          <% end %>          
         </h1>
         <div class="detail">
           <p>
@@ -46,12 +49,8 @@
         </script>      
       </div>
       <div class="btn-group">
-        <button class="btn btn-info" type="button">
-          <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
-        </button>
-        <button class="btn btn-danger" type="button">
-          <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </button>
+          <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %>
+          <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
