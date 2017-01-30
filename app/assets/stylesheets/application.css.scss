@@ -43,7 +43,9 @@ footer {
       max-width: 170px;
       width: 50%;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
+      /*border-radius: 10px;*/
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
       text-align: center;
       text-decoration:none;
       img {
@@ -51,6 +53,7 @@ footer {
         margin: 0px;
         max-width: 100%;
         height: 140px;
+        border-top-left-radius: 30px;
       }
       h2 {
         font-size: 22px;
