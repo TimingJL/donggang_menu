@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h1 class="modal-title" id="exampleModalLabel">New Item</h1>        
+        <h1 class="modal-title" id="exampleModalLabel">新增菜色</h1>        
       </div>
       <div class="modal-body">
           <%= simple_form_for ([@restaurant, @restaurant.items.build]), html:{multipart: true} do |f| %>

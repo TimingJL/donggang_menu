@@ -30,9 +30,26 @@
         </div>
 
     <div id="items_wrapper">  
-        <%= render @restaurant.items %>
-        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>
-             <%= render "items/modalForm" %>  
+        <p></p>
+        
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @restaurant.items %>
+    </tbody>
+  </table>
+       
+        <br>
+        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">新增菜色</button>
+        <%= render "items/modalForm" %>  
     </div>
 
       </div>

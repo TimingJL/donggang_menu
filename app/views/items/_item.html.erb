@@ -1,24 +1,23 @@
-<p></p>
-<p></p>
-
-<table style="width:100%">
-  <tr>
-    <td>
-        <% if item.imageURL.present? %>
-          <%= image_tag item.imageURL, width: '50px' %>
-        <% elsif item.image.present? %>
-          <%= image_tag item.image.url(:small) %>
-        <% else %>
-          <%= item.imageURL %>
-        <% end %>
-    </td>
-    <td><%= item.name %></td>
-    <td><%= item.price %></td> 
-    <td>
-      <div class="btn-group">
-        <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id), class: "btn btn-info" %>
-        <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<tr>
+  <td>
+      <% if item.imageURL.present? %>
+        <%= image_tag item.imageURL, width: '50px' %>
+      <% elsif item.image.present? %>
+        <%= image_tag item.image.url(:small) %>
+      <% else %>
+        <%= item.imageURL %>
+      <% end %>    
+  </td>
+  <td>
+      <%= item.name %>
+  </td>
+  <td>
+      <%= item.price %>元
+  </td>
+  <td>
+      <div class='btn-group'>
+          <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id), class: "btn btn-info btn-sm" %>
+          <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
       </div>
-    </td>     
-  </tr>
-</table>
+  </td>  
+</tr>     
