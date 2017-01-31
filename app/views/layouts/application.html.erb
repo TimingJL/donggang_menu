@@ -2,8 +2,10 @@
 	<html>
 	  <head>
 	    <title>東港巴豆腰</title>
+	    
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
 	    <%= csrf_meta_tags %>
 
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -46,16 +48,26 @@
 								<% end %>		                        
 		                    </div>
 		                    <!--<button type="submit" class="btn btn-default">Submit</button>.-->
-		                </form>		                
-		                <li><%= link_to 'New Restaurant', new_restaurant_path %></li>
-
-							<% if user_signed_in? %>
-						        <li><%= link_to 'Account', edit_user_registration_path %></li>
-						        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-							<% else %>
-						        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-						        <li><%= link_to 'Sign in', new_user_session_path %></li>    
-							<% end %>		                
+		                </form>
+		                <li class="dropdown">
+		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-double-down fa-2x" aria-hidden="true"></i></a>
+		                    <ul class="dropdown-menu" role="menu">	                	
+								<% if user_signed_in? %>
+					                <li>
+					                	<%= link_to ' New Restaurant', new_restaurant_path, class: "fa fa-file fa-2x" %>
+					                </li>								
+							        <li>
+							        	<%= link_to ' User', edit_user_registration_path, class: "fa fa-user fa-2x" %>
+							        </li>
+							        <li>
+							        	<%= link_to ' Log out', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out fa-2x"%>
+							        </li>
+								<% else %>
+							        <li><%= link_to ' Sign up', new_user_registration_path, class: "fa fa-user-plus fa-2x" %></li>
+							        <li><%= link_to ' Sign in', new_user_session_path, class: "fa fa-sign-in fa-2x" %></li>    
+								<% end %>	
+		                    </ul>
+		                </li>									                
 		            </ul>
 		        </div>
 		    </div>
