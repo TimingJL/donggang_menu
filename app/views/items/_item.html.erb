@@ -15,9 +15,18 @@
       <%= item.price %>元
   </td>
   <td>
-      <div class='btn-group'>
-          <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id), class: "btn btn-info btn-xs" %>
-          <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
-      </div>
+  <div class="dropdown">
+    <div id="menu1" data-toggle="dropdown">
+      <a href="#" style="background:white;"><li class="fa fa-sort-desc fa-2x" aria-hidden="true"></li></a>
+    </div>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li>
+      <%= link_to 'Edit', edit_restaurant_item_path(@restaurant, item.id) %>
+    </li>
+      <li>
+      <%= link_to  "Delete", restaurant_item_path(@restaurant, item.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>          
+    </ul>
+  </div>
   </td>  
 </tr>     

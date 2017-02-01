@@ -101,3 +101,30 @@ textarea {
 
     }     
 }
+
+#comments{
+  margin: 20px;
+  word-wrap:break-word;
+}
+
+.comment-box{
+  width: 100%;
+  border-radius: 5px;  
+  word-wrap:break-word;
+}
+
+
+.table{
+  word-wrap:break-word;
+}
+
+.comment_time{
+  color: #BEBEBE;
+  /*font-style: italic;*/
+}
+
+.myButton{
+  hover {
+      background: red;
+  }
+}

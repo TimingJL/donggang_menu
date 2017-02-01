@@ -3,6 +3,8 @@
 * AJAX CRUD
 * Item styling
 * Category/Filtering
+* Comments
+* Like/Unlike
 
 
 # Note

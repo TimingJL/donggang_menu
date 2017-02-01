@@ -33,19 +33,19 @@
         <p></p>
         
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @restaurant.items %>
-    </tbody>
-  </table>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @restaurant.items %>
+              </tbody>
+            </table>
        
         <br>
         <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal">新增菜色</button>
@@ -53,8 +53,32 @@
     </div>
 
       </div>
+
+
+        <div id="comments">
+            <h3><%= @restaurant.comments.count %> 則留言</h3>
+                <table class="table" style="word-break:break-all">
+                  <thead>
+                    <tr>
+                      <th width='50'></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render @restaurant.comments %>
+                  </tbody>
+                </table>
+            <!-- <h3>Add a comment:</h3> -->
+            <%= render "comments/form" %>
+        </div>
+
+
+
+
       <div>
         <div id="map" style="max-width:100%;height:400px">地圖預留</div>
+
         <script type="text/javascript">
             handler = Gmaps.build('Google');
             handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

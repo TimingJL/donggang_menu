@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :restaurants do
   	resources :items
+  	resources :comments
   end
 
   root 'restaurants#index'
