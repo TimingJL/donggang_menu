@@ -6,7 +6,6 @@ class CategoriesController < ApplicationController
 	end
 
     def show
-    	redirect_to @category
     end
 
 	def new
