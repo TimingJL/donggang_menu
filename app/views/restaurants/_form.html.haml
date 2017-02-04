@@ -15,5 +15,6 @@
         = f.input :phone2, input_html: { class: 'form-control' } 
         = f.input :website, input_html: { class: 'form-control' }      
         = f.input :note, input_html: { class: 'form-control' }
-        = f.input :vegetarian, input_html: { class: 'form-control' }
+        /= f.input :vegetarian, input_html: { class: 'form-control' }
+        = f.collection_check_boxes :category_ids, Category.all, :id, :name
     = f.button :submit, class: "btn btn-primary"

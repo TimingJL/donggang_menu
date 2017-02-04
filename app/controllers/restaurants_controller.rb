@@ -4,11 +4,18 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    # @restaurants = Restaurant.all
     if params[:search]
       @restaurants = Restaurant.where('name LIKE ?', "%#{params[:search]}%")
-    else
+    elsif params[:category].blank?
       @restaurants = Restaurant.all
+    else
+      @categories = Category.all
+      @restaurants = []
+      (Restaurant.all).each do |restaurant|
+        if restaurant.category_ids.include?(@categories.find_by_name(params[:category]).id)
+          @restaurants.push(restaurant)
+        end
+      end
     end
   end
 
@@ -79,6 +86,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def restaurant_params
-    params.require(:restaurant).permit(:website, :imageURL, :image, :name, :address, :phone1, :phone2, :note, :vegetarian)
+    params.require(:restaurant).permit(:website, :imageURL, :image, :name, :address, :phone1, :phone2, :note, :vegetarian, :category_ids => [] )
   end
 end

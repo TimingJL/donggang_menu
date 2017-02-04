@@ -17,6 +17,7 @@
 	  </head>
 
 	  <body>
+	  <br><br><br> 
 	  	<div class='gradient-background'>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 		    <div class="container-fluid">
@@ -30,14 +31,20 @@
 		        </div>
 		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		            <ul class="nav navbar-nav">
-		                <!--<li class="dropdown">
-		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Foods<span class="caret"></span></a>
+		                <li class="dropdown">
+		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size:18px;">餐廳分類<span class="caret"></span></a>
 		                    <ul class="dropdown-menu" role="menu">
-		                        <li><a href="#">Bread</a></li>
-		                        <li><a href="#">Coffee Beans</a></li>
-		                        <li><a href="#">Strawberry</a></li>
+								<li>
+									<%= link_to '全部餐廳', root_path %>
+									
+								</li>		                    
+							    <% Category.all.each do |category| %>
+							      <li>
+							        <%= link_to category.name, restaurants_path(category: category.name) %>
+							      </li>
+							    <% end %>
 		                    </ul>
-		                </li>-->
+		                </li>
 		            </ul>
 		            <ul class="nav navbar-nav navbar-right">		            	
 		                <form class="navbar-form navbar-left" role="search">
@@ -49,25 +56,26 @@
 		                    </div>
 		                    <!--<button type="submit" class="btn btn-default">Submit</button>.-->
 		                </form>
-		                <li class="dropdown">
+		                <!--<li class="dropdown">
 		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-double-down fa-2x" aria-hidden="true"></i></a>
 		                    <ul class="dropdown-menu" role="menu">	                	
+	
+		                    </ul>
+		                </li>	-->		
 								<% if user_signed_in? %>
 					                <li>
 					                	<%= link_to ' New Restaurant', new_restaurant_path, class: "fa fa-file fa-2x" %>
 					                </li>								
 							        <li>
-							        	<%= link_to ' User', edit_user_registration_path, class: "fa fa-user fa-2x" %>
+							        	<%= link_to ' '+current_user.username, edit_user_registration_path, class: "fa fa-user fa-2x" %>
 							        </li>
 							        <li>
 							        	<%= link_to ' Log out', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out fa-2x"%>
 							        </li>
 								<% else %>
 							        <li><%= link_to ' Sign up', new_user_registration_path, class: "fa fa-user-plus fa-2x" %></li>
-							        <li><%= link_to ' Sign in', new_user_session_path, class: "fa fa-sign-in fa-2x" %></li>    
-								<% end %>	
-		                    </ul>
-		                </li>									                
+							        <li><%= link_to ' Log in', new_user_session_path, class: "fa fa-sign-in fa-2x" %></li>    
+								<% end %>		                						                
 		            </ul>
 		        </div>
 		    </div>

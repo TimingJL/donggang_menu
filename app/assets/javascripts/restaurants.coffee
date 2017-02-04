@@ -7,3 +7,4 @@ $ ->
     $('#restaurants').masonry
       itemSelector: '.box'
       isFitWidth: true
+      animate:true
