@@ -16,8 +16,10 @@
           <% if restaurant.phone2.present? %>              
             <%= restaurant.phone2 %>
           <% end %>            
-        </h4>  
-
+        </h4>
+        <h4 class="detail">
+          <%= restaurant.comments.count %> 則留言      
+        </h4>        
       <div class="btn-group">
         <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
         <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
