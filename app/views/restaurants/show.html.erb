@@ -20,6 +20,14 @@
             <%= link_to '前往店家網站', @restaurant.website, class: "btn btn-warning"%>
           <% end %>          
         </h1>
+        <h4 style='text-align:left;'>
+          <%= pluralize(@restaurant.get_likes.size, "") %><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+          <%= @restaurant.comments.count %><i class="fa fa-commenting-o" aria-hidden="true"></i>    
+        </h4>
+        <h4 class="detail btn-group">
+          <%= link_to "讚", like_restaurant_path(@restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default" %>
+          <%= link_to "收回讚", dislike_restaurant_path(@restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default" %>                       
+        </h4>                 
         <div class="detail">
           <p>
             <%= @restaurant.address %>
@@ -67,7 +75,7 @@
                 <table class="table" style="word-break:break-all">
                   <thead>
                     <tr>
-                      <th width='50'></th>
+                      <th width='100'></th>
                       <th></th>
                       <th></th>
                     </tr>

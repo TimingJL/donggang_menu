@@ -15,15 +15,33 @@
           <%= restaurant.phone1 %>
           <% if restaurant.phone2.present? %>              
             <%= restaurant.phone2 %>
-          <% end %>            
+          <% end %>
+        <h4 style='text-align:right;'>
+          <%= pluralize(restaurant.get_likes.size, "") %><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+          <%= restaurant.comments.count %><i class="fa fa-commenting-o" aria-hidden="true"></i>    
+        </h4>                     
         </h4>
-        <h4 class="detail">
-          <%= restaurant.comments.count %> 則留言      
-        </h4>        
-      <div class="btn-group">
-        <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-info" %>
-        <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-      </div>
+
+        <h4 class="detail btn-group">
+          <%= link_to "讚", like_restaurant_path(restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default" %>
+          <%= link_to "收回讚", dislike_restaurant_path(restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default" %>                       
+        </h4>  
+        <div class="dropdown">
+          <div id="menu1" data-toggle="dropdown">
+            <a href="#" style="background:white;"><li class="fa fa-sort-desc fa-2x" aria-hidden="true"></li></a>
+          </div>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li>
+                  <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+                </li>
+                  <li>
+                  <%= link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" } %>
+                </li>          
+                </ul> 
+        </div>                     
     </div>
   <% end %>
 </div>
+
+
+

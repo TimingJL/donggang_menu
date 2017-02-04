@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+	acts_as_votable
 	has_many :items
 	has_many :comments
 	has_many :categorizations

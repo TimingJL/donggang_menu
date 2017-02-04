@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :restaurants do
+    member do
+        get "like", to: "restaurants#upvote"
+        get "dislike", to: "restaurants#downvote"
+    end 	
   	resources :items
   	resources :comments
   end
