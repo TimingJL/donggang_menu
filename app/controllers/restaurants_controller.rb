@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     if params[:search]
-      @restaurants = Restaurant.where('name LIKE ?', "%#{params[:search]}%")
+      @restaurants = Restaurant.where('name LIKE ? OR address LIKE ? OR phone1 LIKE ? OR phone2 LIKE ? OR note LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     elsif params[:category].blank?
       @restaurants = Restaurant.all
     else

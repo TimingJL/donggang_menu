@@ -12,13 +12,15 @@
           <%= link_to restaurant.name, restaurant %>
         </h2>   
         <h4 class="detail">
-          <%= restaurant.phone1 %>
+          <p><%= restaurant.phone1 %></p>
           <% if restaurant.phone2.present? %>              
-            <%= restaurant.phone2 %>
+            <p><%= restaurant.phone2 %></p>
           <% end %>
-        <h4 style='text-align:right;'>
-          <%= pluralize(restaurant.get_likes.size, "") %><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
-          <%= restaurant.comments.count %><i class="fa fa-commenting-o" aria-hidden="true"></i>    
+        <h4 style='text-align:right;margin:10px;'>
+          <%= pluralize(restaurant.get_likes.size, "") %>
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+          <%= restaurant.comments.count %>
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>    
         </h4>                     
         </h4>
 
