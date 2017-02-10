@@ -9,6 +9,10 @@
         <% else %>
           <%= link_to @restaurant.name, @restaurant %>
         <% end %>
+        
+        <% if @restaurant.menu_url.present? %>              
+          <%= link_to (image_tag @restaurant.menu_url , width: '100%'), @restaurant %>
+        <% end %>           
       </div>
       <div class="panel-body">
         <h1>
@@ -39,6 +43,9 @@
           <p>
             <%= @restaurant.phone1 %>
           </p>
+          <% if @restaurant.phone2.present? %>              
+            <p><%= @restaurant.phone2 %></p>
+          <% end %>          
           <p>
             <br>備註:
             <br><%= @restaurant.note %>
