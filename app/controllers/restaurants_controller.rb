@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     else
       @categories = Category.all
       @restaurants = []
-      (Restaurant.all).each do |restaurant|
+      (Restaurant.all.order("RANDOM()")).each do |restaurant|
         if restaurant.category_ids.include?(@categories.find_by_name(params[:category]).id)
           @restaurants.push(restaurant)
         end
