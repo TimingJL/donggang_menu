@@ -8,14 +8,14 @@
       <% else %>
         <%= link_to restaurant.name, restaurant %>
       <% end %>
-        <h2>
-          <%= link_to restaurant.name, restaurant %>
+        <h2 style='font-size:18px;'>
+          <%= link_to truncate(restaurant.name, length: 10), restaurant %>
         </h2>   
         <h4 class="detail">
           <p><%= restaurant.phone1 %></p>
-          <% if restaurant.phone2.present? %>              
+          <!-- <% if restaurant.phone2.present? %>              
             <p><%= restaurant.phone2 %></p>
-          <% end %>
+          <% end %> -->
         <h4 style='text-align:right;margin:10px;'>
           <%= pluralize(restaurant.get_likes.size, "") %>
           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
