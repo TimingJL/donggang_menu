@@ -12,7 +12,12 @@
           <%= link_to truncate(restaurant.name, length: 10), restaurant %>
         </h2>   
         <h4 class="detail">
-          <p><%= restaurant.phone1 %></p>
+          <% if restaurant.phone1.present? %>              
+            <p><%= restaurant.phone1 %></p>
+          <% else %>
+            <p>電話未提供</p>
+          <% end %>       
+          
           <!-- <% if restaurant.phone2.present? %>              
             <p><%= restaurant.phone2 %></p>
           <% end %> -->
