@@ -43,8 +43,11 @@
 							      </li>
 							    <% end %>
 								<li>
-									<%= link_to 'Category Edit', categories_path %>
-									
+									<% if user_signed_in? %>
+										<% if current_user.admin == true %>
+											<%= link_to 'Category Edit', categories_path %>
+										<% end %>
+									<% end %>
 								</li>							    
 		                    </ul>
 		                </li>
@@ -68,7 +71,12 @@
 								<% if user_signed_in? %>
 					                <li>
 					                	<%= link_to ' New Restaurant', new_restaurant_path, class: "fa fa-file fa-2x" %>
-					                </li>								
+					                </li>
+					                <% if current_user.admin == true %>
+						                <li>
+						                	<%= link_to ' Admin', users_path, class: "fa fa-file fa-2x" %>
+						                </li>
+						            <% end %>			                				
 							        <li>
 							        	<%= link_to ' '+current_user.username, edit_user_registration_path, class: "fa fa-user fa-2x" %>
 							        </li>

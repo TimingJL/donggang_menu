@@ -32,20 +32,25 @@
         <h4 class="detail btn-group">
           <%= link_to "讚", like_restaurant_path(restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default" %>
           <%= link_to "收回讚", dislike_restaurant_path(restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default" %>                       
-        </h4>  
-        <div class="dropdown">
-          <div id="menu1" data-toggle="dropdown">
-            <a href="#" style="background:white;"><li class="fa fa-sort-desc fa-2x" aria-hidden="true"></li></a>
-          </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                  <li>
-                  <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-                </li>
-                  <li>
-                  <%= link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" } %>
-                </li>          
-                </ul> 
-        </div>                     
+        </h4> 
+
+        <% if user_signed_in? %>
+            <% if current_user.admin == true %>         
+                <div class="dropdown">
+                  <div id="menu1" data-toggle="dropdown">
+                    <a href="#" style="background:white;"><li class="fa fa-sort-desc fa-2x" aria-hidden="true"></li></a>
+                  </div>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li>
+                      <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+                  </li>
+                    <li>
+                      <%= link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" } %>
+                    </li>          
+                  </ul> 
+                </div> 
+            <% end %>
+        <% end %>                            
     </div>
   <% end %>
 </div>

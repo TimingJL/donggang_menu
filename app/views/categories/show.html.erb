@@ -5,7 +5,7 @@
       		<div class="panel-body">
       			<h1><%= @category.name %></h1>
       			<p>Publish at
-				<%= @category.created_at.strftime('%b %d, %Y') %></p>
+				        <%= @category.created_at.strftime('%b %d, %Y') %></p>
 
       			<%= link_to 'Back', categories_path, class: "btn btn-info" %>				
       		</div>
