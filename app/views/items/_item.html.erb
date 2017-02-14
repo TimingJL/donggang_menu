@@ -2,10 +2,6 @@
   <td>
       <% if item.imageURL.present? %>
         <%= image_tag item.imageURL, width: '50px' %>
-      <% elsif item.image.present? %>
-        <%= image_tag item.image.url(:small) %>
-      <% else %>
-        <%= item.imageURL %>
       <% end %>    
   </td>
   <td>
