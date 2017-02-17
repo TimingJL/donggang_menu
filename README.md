@@ -1,11 +1,16 @@
 # To do
 
-* AJAX CRUD
-* Item styling
-* Category/Filtering
-* Comments
-* Like/Unlike
-
+* Modal image of items
+* Styling note. line-aligan. Text-font styling.
+* Styling Navbar. Drop down menu.
+* Home icon.
+* Map Scale tuning.
+* Marquee
+* masonry tuning.
+* Click count/Online user count/
+* In show page can use search.
+* Google Analasys.
+	https://sofree.cc/google-analytics/
 
 # Note
 * Devise to Heroku
