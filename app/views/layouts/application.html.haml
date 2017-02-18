@@ -24,7 +24,7 @@
 					%span.icon-bar
 					%span.icon-bar
 				%a
-					= link_to '腰巴岔菜單', root_path, class: "navbar-brand"
+					= link_to '腰巴岔菜單', root_path, class: "navbar-brand",:onclick => "window.location.reload()"
 
 			/ Collect the nav links, forms, and other content for toggling
 			#bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -38,7 +38,7 @@
 								= link_to '全部餐廳', root_path
 							- Category.all.each do |category|
 								%li
-									= link_to category.name, restaurants_path(category: category.name)
+									= link_to category.name, restaurants_path(category: category.name),:onclick => "window.location.reload()"
 							%li
 								- if user_signed_in?
 									- if current_user.admin == true
