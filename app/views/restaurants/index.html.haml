@@ -1,40 +1,39 @@
-#index-box
-  #restaurants.transitions-enabled.row
-    - @restaurants.each do |restaurant|
-      .box.panel.panel-default.col-sm-6.col-md-3
-        - if restaurant.imageURL.present?
-          = link_to (image_tag restaurant.imageURL , width: '100%'), restaurant
-        - elsif restaurant.image.present?
-          = link_to (image_tag restaurant.image.url(:small) , width: '100%'), restaurant
+#restaurants.transitions-enabled.row
+  - @restaurants.each do |restaurant|
+    .box.panel.panel-default.col-sm-6.col-md-3
+      - if restaurant.imageURL.present?
+        = link_to (image_tag restaurant.imageURL , width: '100%'), restaurant
+      - elsif restaurant.image.present?
+        = link_to (image_tag restaurant.image.url(:small) , width: '100%'), restaurant
+      - else
+        = link_to restaurant.name, restaurant
+      %h2{:style => "font-size:18px;"}
+        = link_to truncate(restaurant.name, length: 10), restaurant
+      %h4.detail
+        - if restaurant.phone1.present?
+          %p= restaurant.phone1
         - else
-          = link_to restaurant.name, restaurant
-        %h2{:style => "font-size:18px;"}
-          = link_to truncate(restaurant.name, length: 10), restaurant
-        %h4.detail
-          - if restaurant.phone1.present?
-            %p= restaurant.phone1
-          - else
-            %p 電話未提供
-          /
-            <haml_silent> if restaurant.phone2.present? </haml_silent><haml_block>
-            <p><haml_loud> restaurant.phone2 </haml_loud></p>
-            </haml_block>
-          %h4{:style => "text-align:right;margin:10px;"}
-            = pluralize(restaurant.get_likes.size, "")
-            %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
-            = restaurant.comments.count
-            %i.fa.fa-commenting-o{"aria-hidden" => "true"}
-        %h4.detail.btn-group
-          = link_to "讚", like_restaurant_path(restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default"
-          = link_to "收回讚", dislike_restaurant_path(restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default"
-        - if user_signed_in?
-          - if current_user.admin == true
-            .dropdown
-              #menu1{"data-toggle" => "dropdown"}
-                %a{:href => "#", :style => "background:white;"}
-                  %li.fa.fa-sort-desc.fa-2x{"aria-hidden" => "true"}
-              %ul.dropdown-menu{"aria-labelledby" => "menu1", :role => "menu"}
-                %li
-                  = link_to 'Edit', edit_restaurant_path(restaurant)
-                %li
-                  = link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" }
+          %p 電話未提供
+        /
+          <haml_silent> if restaurant.phone2.present? </haml_silent><haml_block>
+          <p><haml_loud> restaurant.phone2 </haml_loud></p>
+          </haml_block>
+        %h4{:style => "text-align:right;margin:10px;"}
+          = pluralize(restaurant.get_likes.size, "")
+          %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
+          = restaurant.comments.count
+          %i.fa.fa-commenting-o{"aria-hidden" => "true"}
+      %h4.detail.btn-group
+        = link_to "讚", like_restaurant_path(restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default"
+        = link_to "收回讚", dislike_restaurant_path(restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default"
+      - if user_signed_in?
+        - if current_user.admin == true
+          .dropdown
+            #menu1{"data-toggle" => "dropdown"}
+              %a{:href => "#", :style => "background:white;"}
+                %li.fa.fa-sort-desc.fa-2x{"aria-hidden" => "true"}
+            %ul.dropdown-menu{"aria-labelledby" => "menu1", :role => "menu"}
+              %li
+                = link_to 'Edit', edit_restaurant_path(restaurant)
+              %li
+                = link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" }
