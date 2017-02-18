@@ -3,7 +3,7 @@
 * Modal image of items
 * Styling note. line-aligan. Text-font styling.
 * Styling Navbar. Drop down menu.
-* Home icon.
+* Home icon/logo.
 * Map Scale tuning.
 * Marquee
 * masonry tuning.
@@ -16,7 +16,8 @@
 * Devise to Heroku
 http://railsgirls.tw/devise
 
-
+# Google Map
+http://anxgang.logdown.com/posts/773771-rails-google-map-usage
 
 # show box
 ```

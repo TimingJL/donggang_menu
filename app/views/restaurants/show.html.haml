@@ -1,0 +1,86 @@
+#show-box.row
+  .col-md-6.col-md-offset-3
+    .box
+      .panel.panel-default
+        - if @restaurant.imageURL.present?
+          = link_to (image_tag @restaurant.imageURL , width: '100%'), @restaurant
+        - elsif @restaurant.image.present?
+          = link_to (image_tag @restaurant.image.url(:small) , width: '100%'), @restaurant
+        - else
+          = link_to @restaurant.name, @restaurant
+        - if @restaurant.menu_url.present?
+          = link_to (image_tag @restaurant.menu_url , width: '100%'), @restaurant
+      .panel-body
+        %h1
+          = @restaurant.name
+          - if @restaurant.website.present?
+            = link_to '前往店家網站', @restaurant.website, class: "btn btn-warning"
+        %h4{:style => "text-align:left;"}
+          = pluralize(@restaurant.get_likes.size, "")
+          %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
+          = @restaurant.comments.count
+          %i.fa.fa-commenting-o{"aria-hidden" => "true"}
+        %h4.detail.btn-group
+          = link_to "讚", like_restaurant_path(@restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default"
+          = link_to "收回讚", dislike_restaurant_path(@restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default"
+        .detail
+          %p
+            = @restaurant.address
+          %p
+            餐廳分類：
+            - @restaurant.categories.each do |category|
+              = category.name
+          %br/
+          %p
+            = @restaurant.phone1
+          - if @restaurant.phone2.present?
+            %p= @restaurant.phone2
+          %p
+            %br>/
+            備註:
+            %br/
+            = simple_format(@restaurant.note)
+        #items_wrapper
+          %p
+          %table.table
+            %thead
+              %tr
+                %th Image
+                %th Name
+                %th Price
+                %th
+            %tbody
+              = render @restaurant.items
+          %br/
+          - if user_signed_in?
+            - if current_user.admin == true
+              %button.btn.btn-success{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} 新增菜色
+              = render "items/modalForm"
+      #comments
+        %h3
+          = @restaurant.comments.count
+          則留言
+        %table.table{:style => "word-break:break-all"}
+          %thead
+            %tr
+              %th{:width => "100"}
+              %th
+              %th
+          %tbody
+            = render @restaurant.comments
+        / <h3>Add a comment:</h3>
+        = render "comments/form"
+      %div
+        #map{:style => "max-width:100%;height:400px"} 地圖預留
+        :javascript
+          handler = Gmaps.build('Google');
+                      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                      markers = handler.addMarkers(#{raw @hash.to_json});
+                      handler.bounds.extendWith(markers);
+                      handler.fitMapToBounds();
+                    });
+      - if user_signed_in?
+        - if current_user.admin == true
+          .btn-group
+            = link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info"
+            = link_to 'Delete', @restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

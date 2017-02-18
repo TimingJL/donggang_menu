@@ -1,7 +1,9 @@
 	<!DOCTYPE html>
 	<html>
 	  <head>
-	    <title>腰巴岔菜單</title>
+	    <title>
+	    	腰巴岔菜單
+	    </title>
 	    
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -27,7 +29,9 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-		            <a><%= link_to '腰巴岔菜單', root_path, class: "navbar-brand", onclick:"javascript:window.location.reload()"%></a>
+		            <a>
+		            	<%= link_to '腰巴岔菜單', root_path, class: "navbar-brand" %>
+		            </a>
 		        </div>
 		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		            <ul class="nav navbar-nav">
@@ -39,25 +43,25 @@
 								</li>		                    
 							    <% Category.all.each do |category| %>
 							      <li>
-							        <%= link_to category.name, restaurants_path(category: category.name), onclick:"javascript:window.location.reload()" %>
+							        <%= link_to category.name, restaurants_path(category: category.name) %>
 							      </li>
 							    <% end %>
 								<li>
 									<% if user_signed_in? %>
 										<% if current_user.admin == true %>
-											<%= link_to 'Category Edit', categories_path %>
+											<%= link_to '新增/編輯分類', categories_path , style:'color:red;'%>
 										<% end %>
 									<% end %>
 								</li>							    
 		                    </ul>
 		                </li>
 		            </ul>
-		            <ul class="nav navbar-nav navbar-right">		            	
-		                <form class="navbar-form navbar-left" role="search">
+		            <ul class="nav navbar-nav navbar-right">	           	            
+		                <form class="navbar-form navbar-left col-sm-6 col-sm-offset-3" role="search">
 		                    <div>
 		                        <!--<input type="text" class="form-control" placeholder="Search">-->
 								<%= form_tag @restaurant, method: :get do %>
-								    <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control" %>
+								    <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control"%>
 								<% end %>		                        
 		                    </div>
 		                    <!--<button type="submit" class="btn btn-default">Submit</button>.-->
@@ -69,20 +73,27 @@
 		                    </ul>
 		                </li>	-->		
 								<% if user_signed_in? %>
-					                <li>
-					                	<%= link_to ' New Restaurant', new_restaurant_path, class: "fa fa-file fa-2x" %>
-					                </li>
-					                <% if current_user.admin == true %>
+									<% if current_user.admin == true %>
 						                <li>
-						                	<%= link_to ' User List', users_path, class: "fa fa-eye fa-2x" %>
-						                </li>
-						            <% end %>			                				
-							        <li>
-							        	<%= link_to ' '+current_user.username, edit_user_registration_path, class: "fa fa-user fa-2x" %>
-							        </li>
-							        <li>
-							        	<%= link_to ' Log out', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out fa-2x"%>
-							        </li>
+						                	<%= link_to ' 新增餐廳', new_restaurant_path, class: "fa fa-file fa-2x" %>
+						                </li>					                
+						            <% end %>
+					                <li class="dropdown">
+					                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-angle-double-down fa-2x" aria-hidden="true"></i></a>
+					                    <ul class="dropdown-menu" role="menu">  
+												<% if current_user.admin == true %>        
+									                <li>
+									                	<%= link_to ' User List', users_path, class: "fa fa-eye fa-2x" %>
+									                </li>
+									            <% end %>					                         	
+										        <li>
+										        	<%= link_to ' '+current_user.username, edit_user_registration_path, class: "fa fa-user fa-2x" %>
+										        </li>
+										        <li>
+										        	<%= link_to ' Log out', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out fa-2x"%>
+										        </li>				
+					                    </ul>
+					                </li>						            			                			
 								<% else %>
 							        <li><%= link_to ' Sign up', new_user_registration_path, class: "fa fa-user-plus fa-2x" %></li>
 							        <li><%= link_to ' Log in', new_user_session_path, class: "fa fa-sign-in fa-2x" %></li>    
@@ -98,8 +109,9 @@
 			<% if alert %>
 			  <p class="alert alert-danger"><%= alert %></p>
 			<% end %>
-	    <%= yield %>
+	    
 	    </div>
+	    <div class='container'><%= yield %></div>
 	  </body>
 	<footer>
 	<!-- Copyright & Footer Stuff -->

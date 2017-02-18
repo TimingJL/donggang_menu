@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require 'masonry/transitions'
  *= require_tree .
  *= require_self
  */
@@ -35,14 +36,14 @@ footer {
 }
 
 #restaurants {
-  margin: 0px auto;
-  width: 100% auto;
+  margin: 0px;
+  max-width: 100%;
   .box {
-      padding: 0px 0px;
-      margin: 2px;/*box之間的距離*/
+      min-width: 170px;
       max-width: 170px;
-      width: 50% auto;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      padding: 0px 0px;
+      margin: 2px;/*box之間的距離*/      
       /*border-radius: 10px;*/
       /*border-top-left-radius: 30px;*/
       /*border-bottom-right-radius: 30px;*/
@@ -95,8 +96,9 @@ textarea {
     }
     .detail {
       p{
-      font-size: 20px;
+      font-size: 18px;
       line-height: 30px;
+      font-weight: normal; 
       border-top: 0px solid #EAEAEA;
       padding: 0px;
       margin: 3px;
