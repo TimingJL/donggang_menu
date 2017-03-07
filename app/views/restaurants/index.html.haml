@@ -8,8 +8,8 @@
           = link_to (image_tag restaurant.image.url(:small) , width: '100%'), restaurant
         - else
           = link_to restaurant.name, restaurant
-        %h2{:style => "font-size:18px;"}
-          = link_to truncate(restaurant.name, length: 7), restaurant
+        %h2{:style => "font-size:16px;"}
+          = link_to truncate(restaurant.name, length: 10), restaurant
         %h4.detail
           - if restaurant.phone1.present?
             %p= restaurant.phone1

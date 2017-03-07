@@ -39,7 +39,7 @@ footer {
   display: table;
   margin: 0 auto; 
   .box {
-      width: 150px;
+      width: 160px;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
       padding: 0px 0px;
       margin: 3px;/*box之間的距離*/      
@@ -137,7 +137,7 @@ textarea {
 
 #index-box{
   width: 100%;
-  background: white;
+  background: rgba(100%,100%,100%,1.0);
   padding: 13px 0px;
   border-radius: 10px;
 }
