@@ -28,3 +28,6 @@ $('#modalItemImage').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
 
+$('#qrcodeModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})

@@ -1,0 +1,21 @@
+<!-- Button trigger modal -->
+<button style='width:50%;font-size: 30px' type="button" class="btn btn-default fa fa-qrcode" data-toggle="modal" data-target="#qrcodeModal">
+  QRcode
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="qrcodeModal" tabindex="-1" role="dialog" aria-labelledby="qrcodeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title" id="exampleModalLabel">分享</h3>        
+      </div>
+      <div class="modal-body">
+        <%= image_tag("qrcode.jpeg", width: '100%') %>
+      </div>
+    </div>
+  </div>
+</div>
