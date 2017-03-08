@@ -27,3 +27,4 @@ $('#myModal').on('shown.bs.modal', function () {
 $('#modalItemImage').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
+
