@@ -14,3 +14,6 @@ http://anxgang.logdown.com/posts/773771-rails-google-map-usage
 
 # AWD
 https://ihower.tw/rails/actioncontroller.html
+
+# UserAgent
+https://github.com/gshutler/useragent

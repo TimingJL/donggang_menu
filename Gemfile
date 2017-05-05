@@ -16,6 +16,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.1'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'browser', '2.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
