@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+	before_action :detect_browser
 	protect_from_forgery with: :exception
 
     before_filter :configure_permitted_parameters, if: :devise_controller?
@@ -11,4 +12,24 @@ class ApplicationController < ActionController::Base
 
       devise_parameter_sanitizer.permit(:account_update, keys: [:admin])      
     end
+
+
+	private
+
+	def detect_browser
+	  case request.user_agent
+	    when /iPad/i
+	      request.variant = :tablet
+	    when /iPhone/i
+	      request.variant = :phone
+	    when /Android/i && /mobile/i
+	      request.variant = :phone
+	    when /Android/i
+	      request.variant = :tablet
+	    when /Windows Phone/i
+	      request.variant = :phone
+	    else
+	      request.variant = :desktop
+	   end
+	end    
 end
