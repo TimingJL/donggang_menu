@@ -141,3 +141,22 @@ textarea {
   padding: 13px 0px;
   border-radius: 10px;
 }
+
+/* mobile styling */
+#restaurants-phone {
+  .box{
+    margin: 3px;/*box之間的距離*/
+    padding: 5px 5px; 
+    img{
+      width: 120px;
+      height: 110px;
+      align:left;
+    }
+    td.title{
+      font-size: 20px;
+      text-align:top;
+      padding: 0px 5px; 
+      color: black;
+    }
+  }
+}

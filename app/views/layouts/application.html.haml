@@ -73,10 +73,10 @@
 						%li= link_to ' Sign up', new_user_registration_path, class: "fa fa-user-plus fa-2x"
 						%li= link_to ' Log in', new_user_session_path, class: "fa fa-sign-in fa-2x"								
 
-	.container
-		- flash.each do |name, msg|
-			= content_tag :div, msg, class: "alert alert-info"
-		%br/
-		%br/
-		%br/
-		= yield
+
+	- flash.each do |name, msg|
+		= content_tag :div, msg, class: "alert alert-info"
+	%br/
+	%br/
+	%br/
+	= yield

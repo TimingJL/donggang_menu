@@ -1,0 +1,31 @@
+#restaurants-phone.transitions-enabled
+  .box.panel
+    = render 'restaurants/modalQRcode'
+  - @restaurants.each do |restaurant|
+    .box.panel
+      %table{:border => "0", :valign => "top"}
+        %tr
+          %td
+            - if restaurant.imageURL.present?
+              = link_to (image_tag restaurant.imageURL , width: '100%'), restaurant
+            - elsif restaurant.image.present?
+              = link_to (image_tag restaurant.image.url(:small) , width: '100%'), restaurant
+            - else
+              = link_to restaurant.name, restaurant    
+          %td.title.col{:valign => "top" ,width: '100%'}
+            = link_to truncate(restaurant.name, length: 10), restaurant
+            %table              
+              %tr
+                - if restaurant.phone1.present?
+                  %h4= restaurant.phone1
+                - else
+                  %h4 電話未提供   
+              %tr
+                %h5= truncate(restaurant.address, length: 16)
+              %tr
+                %h5{:style => "text-align:left;margin:10px;"}
+                  = pluralize(restaurant.get_likes.size, "")
+                  %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
+                  = restaurant.comments.count
+                  %i.fa.fa-commenting-o{"aria-hidden" => "true"}                 
+                

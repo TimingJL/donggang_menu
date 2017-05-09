@@ -14,6 +14,6 @@ http://anxgang.logdown.com/posts/773771-rails-google-map-usage
 
 # AWD
 https://ihower.tw/rails/actioncontroller.html
+http://blog.chrismaxwell.com/mobile-device-detection-with-ruby-on-rails
 
-# UserAgent
-https://github.com/gshutler/useragent
+
