@@ -1,6 +1,6 @@
 #restaurants-phone.transitions-enabled
-  .box.panel
-    = render 'restaurants/modalQRcode'
+  .box-qrcode.panel
+    %div.text-center= render 'restaurants/modalQRcode'
   - @restaurants.each do |restaurant|
     .box.panel
       %table{:border => "0", :valign => "top"}
