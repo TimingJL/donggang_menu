@@ -32,7 +32,10 @@ body {
 }*/
 
 footer {
-  /*background: rgb(51, 51, 51);*/
+  background: rgb(51, 51, 51);
+  color: white;
+  height: 100%;
+
 }
 
 #restaurants {
@@ -136,7 +139,7 @@ textarea {
 
 #index-box{
   width: 100%;
-  background: rgba(100%,100%,100%,1.0);
+  /*background: rgba(100%,100%,100%,1.0);*/
   padding: 13px 0px;
   border-radius: 10px;
 }

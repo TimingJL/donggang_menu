@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
+  before_action :if_search_restaurant
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
+  impressionist :actions=>[:show,:index]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -34,6 +36,8 @@ class RestaurantsController < ApplicationController
         marker.lng restaurant.longitude
         marker.infowindow restaurant.address
     end     
+    @visitorCount = Restaurant.find(params[:id])
+    impressionist(@visitorCount)     
   end
 
   # GET /restaurants/new
@@ -102,7 +106,14 @@ class RestaurantsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-  def restaurant_params
-    params.require(:restaurant).permit(:website, :imageURL, :menu_url, :image, :name, :address, :phone1, :phone2, :note, :vegetarian, :category_ids => [] )
-  end
+    def restaurant_params
+      params.require(:restaurant).permit(:website, :imageURL, :menu_url, :image, :name, :address, :phone1, :phone2, :note, :vegetarian, :category_ids => [] )
+    end
+
+    def if_search_restaurant
+      if params[:search]
+        @restaurants = Restaurant.where('name LIKE ? OR address LIKE ? OR phone1 LIKE ? OR phone2 LIKE ? OR note LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+        render :index
+      end
+    end  
 end

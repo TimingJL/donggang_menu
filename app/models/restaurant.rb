@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+	is_impressionable
 	acts_as_votable
 	has_many :items
 	has_many :comments
