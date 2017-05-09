@@ -42,7 +42,7 @@ footer {
       width: 160px;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
       padding: 0px 0px;
-      margin: 3px;/*box之間的距離*/      
+      margin: 10px;/*box之間的距離*/      
       /*border-radius: 10px;*/
       /*border-top-left-radius: 30px;*/
       /*border-bottom-right-radius: 30px;*/
@@ -85,10 +85,10 @@ textarea {
     margin: 0px;
     align-items: center;
     .box {
-      margin: 0px;/* auto is center*/
+      margin: 0px auto;/* auto is center*/
       background: white;
-      width: 100%;
-      max-width: 500px;
+      max-width: 600px;
+
       border-radius: 7px; 
     }
     h1{
@@ -104,7 +104,6 @@ textarea {
       margin: 3px;
       color: gray;        
       }
-
     }     
 }
 
