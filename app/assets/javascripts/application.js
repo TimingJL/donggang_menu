@@ -31,3 +31,6 @@ $('#modalItemImage').on('shown.bs.modal', function () {
 $('#qrcodeModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
+
+
+

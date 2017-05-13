@@ -31,11 +31,55 @@ body {
   font-family: 'Lato', sans-serif;
 }*/
 
-footer {
-  background: rgb(51, 51, 51);
-  color: white;
-  height: 100%;
+/*footer {
+     padding:60px;
+     background-color: black;
+     clear: both;
+     color: white;
+}*/
 
+/* Footer */
+
+  #footer {
+    background-color: #F64747;
+    color: #fdd1d1;
+    padding:15px;
+    background: black;
+    text-align:center;
+  }
+
+#callouts {
+  /*background-image: url(image_path("callout_background.jpg"));*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  /*min-height: 400px;*/
+  display: table;
+  .callout_inner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .callout {
+    padding:15px;
+    text-align: center;
+    width: 33.3333%;
+    float: left;
+    h2 {
+      color: white;
+      margin-bottom: 0;
+    }
+    p {
+      color: rgba(250, 250, 250, 0.4);
+    }
+    a {
+      text-decoration:none;
+      color: white;
+      hover{
+        color: green;
+      }
+    }
+  }
 }
 
 #restaurants {
