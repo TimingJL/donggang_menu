@@ -32,9 +32,9 @@
             = category.name
         %br/
         %p
-          = @restaurant.phone1
+          = tel_to @restaurant.phone1
         - if @restaurant.phone2.present?
-          %p= @restaurant.phone2
+          %p= tel_to @restaurant.phone2
         %p
           %br>/
           備註:

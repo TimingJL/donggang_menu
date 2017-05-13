@@ -18,3 +18,6 @@ http://blog.chrismaxwell.com/mobile-device-detection-with-ruby-on-rails
 
 # Impressionist
 http://jazwenpin.com/2016/07/25/impressionist/
+
+# tel_to Rails helper for linking phone numbers
+https://makandracards.com/makandra/29353-tel_to-rails-helper-for-linking-phone-numbers
