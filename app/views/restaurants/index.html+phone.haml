@@ -22,10 +22,14 @@
                   %h4 電話未提供   
               %tr
                 %h5= truncate(restaurant.address, length: 16)
-              %tr
-                %h5{:style => "text-align:left;margin:10px;"}
-                  = pluralize(restaurant.get_likes.size, "")
-                  %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
-                  = restaurant.comments.count
-                  %i.fa.fa-commenting-o{"aria-hidden" => "true"}                 
-                
+              %table{:border => "0",:style => "width:100%"}
+                %tr
+                  %td.h4{:style => "text-align:left;margin:10px;"}
+                    = pluralize(restaurant.get_likes.size, "")
+                    %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}  
+                  %td.h4
+                    = restaurant.comments.count
+                    %i.fa.fa-commenting-o{"aria-hidden" => "true"}                     
+                  %td.h6{:style => "text-align:right;color:gray;"}
+                    = restaurant.impressionist_count
+                    次瀏覽

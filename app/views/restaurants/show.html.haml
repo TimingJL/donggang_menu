@@ -20,6 +20,9 @@
         %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
         = @restaurant.comments.count
         %i.fa.fa-commenting-o{"aria-hidden" => "true"}
+        %h4
+          = @visitorCount.impressionist_count 
+          次瀏覽
       %h4.detail.btn-group
         = link_to "讚", like_restaurant_path(@restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default"
         = link_to "收回讚", dislike_restaurant_path(@restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default"

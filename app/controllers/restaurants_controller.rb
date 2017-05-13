@@ -25,7 +25,7 @@ class RestaurantsController < ApplicationController
       format.html
       format.html.phone
       format.html.tablet
-    end  
+    end       
   end
 
   # GET /restaurants/1

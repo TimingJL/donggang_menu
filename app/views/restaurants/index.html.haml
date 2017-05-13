@@ -16,16 +16,23 @@
           - if restaurant.phone1.present?
             %p.h4= tel_to restaurant.phone1
           - else
-            %p 電話未提供
+            %p.h4 電話未提供
           /
             <haml_silent> if restaurant.phone2.present? </haml_silent><haml_block>
             <p><haml_loud> restaurant.phone2 </haml_loud></p>
             </haml_block>
-          %h4{:style => "text-align:right;margin:10px;"}
-            = pluralize(restaurant.get_likes.size, "")
-            %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}
-            = restaurant.comments.count
-            %i.fa.fa-commenting-o{"aria-hidden" => "true"}
+          %h4
+          %table{:style => "width:100%;margin-left:20px;margin-right:20px;"}
+            %tr
+              %th.h4{:style => "text-align:left;margin:10px;"}
+                = pluralize(restaurant.get_likes.size, "")
+                %i.fa.fa-thumbs-o-up{"aria-hidden" => "true"}              
+              %th.h4{:style => "text-align:left;margin:10px;"}
+                = restaurant.comments.count
+                %i.fa.fa-commenting-o{"aria-hidden" => "true"}              
+              %th.h6{:style => "text-align:left;color:gray;"}
+                = restaurant.impressionist_count
+                次瀏覽
         %h4.detail.btn-group
           = link_to "讚", like_restaurant_path(restaurant), method: :get,class: "fa fa-thumbs-o-up btn btn-default"
           = link_to "收回讚", dislike_restaurant_path(restaurant), method: :get,class:"fa fa-thumbs-o-down btn btn-default"
@@ -40,7 +47,3 @@
                   = link_to 'Edit', edit_restaurant_path(restaurant)
                 %li
                   = link_to  "Delete", restaurant, method: :delete, data: { confirm: "Are you sure?" }
-
-
-
-
