@@ -17,7 +17,7 @@
             %table              
               %tr
                 - if restaurant.phone1.present?
-                  %h4= restaurant.phone1
+                  %h4= tel_to restaurant.phone1
                 - else
                   %h4 電話未提供   
               %tr

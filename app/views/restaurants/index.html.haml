@@ -14,7 +14,7 @@
           = link_to truncate(restaurant.name, length: 10), restaurant
         %h4.detail
           - if restaurant.phone1.present?
-            %p.h4= tel_to restaurant.phone1
+            %p.h4= restaurant.phone1
           - else
             %p 電話未提供
           /
