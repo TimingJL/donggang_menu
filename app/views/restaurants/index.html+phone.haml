@@ -20,8 +20,11 @@
                   %h4= tel_to restaurant.phone1
                 - else
                   %h4 電話未提供   
-              %tr
-                %h5= truncate(restaurant.address, length: 16)
+              %tr         
+                - if restaurant.address.present?
+                  %h5= truncate(restaurant.address, length: 16)
+                - else
+                  %h5 地址未提供                   
               %table{:border => "0",:style => "width:100%"}
                 %tr
                   %td.h4{:style => "text-align:left;margin:10px;"}
